@@ -1,0 +1,36 @@
+2/9/25:
+std::system("pause");
+cout << std::endl;
+string full = (first + " " + last);
+string pet("spot");
+string space(" "); -> different than the char because it has '\0' 
+at the end of an array
+char Cstring[5] = "Dogs";
+passing by value vs reference:
+void AddOne(int& Num) -> AddOne gets the actual variable Num, 
+and doesn't create a copy of Num inside
+int& Ref_b = b -> created a second name for the variable b,
+they have the same reference in memory, if you change the memory, they both change 
+same variable b with a different name, they are linked, connected together
+string -> array of chars, last one is null so n+1 chars 
+passing string literals into a function
+function overloading -> chooses the relevant funcion based on 
+input data type and parameters
+*datatype* literal -> the value assigned to a certain datatype
+const int A; -> error
+void CanPassLiterals(const int & Num)
+constant time - the same time
+int someArray[3]; -> allocates memory for 3 elements
+moving in memory - multiplying by bytes, after last element we access
+unknown garbage data next to it
+{} -> array initializer list, array is a list separated by commas
+#define CONST_VAR 5
+cstlib cmath ctime win.h, srand, vectors, lists, methods, templates
+for each loop
+arrays hold values of the same data type
+break in Switch(intofhowmany)
+800.f;
+cin.ignore(), cin.get(); #include <cstdint> #include <cstdlib> #include <format> srand(time(NULL)); flush() std::time() 
+vector and its methods
+using namespace second; -> all variables have namespace second implied
+
