@@ -11,12 +11,17 @@ void printarr(int loc_arr[], int size) {
 }
 
 void sortarr(int arr[], int arr_size) {
-    for(int i = 1; i < arr_size; i++) {
-        int temp = arr[i];
-        int j = i - 1;
-        while(j >= 0 && arr[j] > temp) {
-            arr[j+1] = 
+    int min;
+    for(int i = 0; i < arr_size; i++) {     // -1
+        min = i;
+        for (int j = i; j < arr_size; j++) {        // +1
+            if (arr[min] > arr[j]) {
+                min = j;
+            }
         }
+        int temp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = temp;
     }
 }
 

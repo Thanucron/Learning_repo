@@ -12,14 +12,9 @@ void printarr(int loc_arr[], int size) {
 
 void sortarr(int arr[], int arr_size) {
     int temp;
-    int index_min = 0;
-    for (int i = 0; i < arr_size; i++) { 
-        if (arr[i] < arr[index_min]) {
-            index_min = i;
-        }
-        temp = arr[i];
-        arr[i] = arr[index_min];
-        arr[index_min] = temp;
+    for(int i=1; i<arr_size; i++) {
+        
+        while()
     }
 }
 
