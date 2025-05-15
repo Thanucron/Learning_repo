@@ -16,28 +16,21 @@ void swaparr(int * i1, int * i2) {      // must be over sortarr
     *i2 = temp;
 }
 
-void sortarr(int arr[], int lowIndex, int highIndex) {
-    if (lowIndex >= highIndex) {
-        return;
-    }
-    int pivot = arr[highIndex];
-    int leftPointer = lowIndex;
-    int rightPointer = highIndex-1;
-    
-    while (leftPointer < rightPointer) {
-        
-        while (arr[leftPointer] <= pivot && leftPointer < rightPointer) {
-            leftPointer++;       // lower <-> keep walking 
+void sortarr(int arr[], int start, int end) {
+    if (start >= end) return;
+    int pivot = arr[end];
+    int i = start-1;
+
+    for(int j = start; j < end; j++) {
+        if (arr[j] <= pivot) {                      // less than
+            i++;
+            swaparr(&arr[i], &arr[j]);
         }
-        while (arr[rightPointer] >= pivot && leftPointer < rightPointer) {
-            rightPointer--;
-        }
-        swaparr(&arr[leftPointer], &arr[rightPointer]);
     }
-    swaparr(&arr[leftPointer],&arr[highIndex]);
-    
-    sortarr(arr,lowIndex,leftPointer-1);
-    sortarr(arr,leftPointer+1,highIndex);
+    swaparr(&arr[i+1], &arr[end]);
+
+    sortarr(arr,start, i-1);
+    sortarr(arr,i+1,end);
 }
 
 
