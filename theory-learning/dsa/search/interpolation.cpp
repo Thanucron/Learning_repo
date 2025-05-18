@@ -10,7 +10,6 @@ int interpolation_search(int arr[], int value, int size) {
     //probing
     while(value >= arr[low] && value <= arr[high] && low <= high) {
         int probe = low + (high - low) * (value - arr[low]) / (arr[high] - arr[low]);
-        cout << probe << '\n';
         if (arr[probe] == value) {
             return probe;
         }
@@ -28,7 +27,7 @@ int main() {
     int sorted_arr[] = {1,2,5,7,9,15,18,56,78,89};
     int size = sizeof(sorted_arr)/sizeof(int); 
     int index = interpolation_search(sorted_arr, 5, size);
-    cout << index << '\n';
+    cout << "Index: " << index << '\n';
     return 0;
 }
 

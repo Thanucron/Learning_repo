@@ -16,8 +16,22 @@ void swaparr(int * i1, int * i2) {      // must be over sortarr
     *i2 = temp;
 }
 
+int medianOfThree(int arr[], int lowIndex, int highIndex) {
+    int mid = lowIndex + (highIndex - lowIndex) / 2;
+
+    // Order the first, middle, and last elements
+    if (arr[lowIndex] > arr[mid]) swaparr(&arr[lowIndex], &arr[mid]);
+    if (arr[lowIndex] > arr[highIndex]) swaparr(&arr[lowIndex], &arr[highIndex]);
+    if (arr[mid] > arr[highIndex]) swaparr(&arr[mid], &arr[highIndex]);
+
+    // Return the middle element index
+    return mid;
+}
+
 void sortarr(int arr[], int start, int end) {
     if (start >= end) return;
+    int pivot_i = medianOfThree(arr,start,end);
+    swaparr(&arr[pivot_i],&arr[end]);
     int pivot = arr[end];
     int i = start-1;
 
@@ -29,8 +43,8 @@ void sortarr(int arr[], int start, int end) {
     }
     swaparr(&arr[i+1], &arr[end]);
 
-    sortarr(arr,start, i-1);
-    sortarr(arr,i+1,end);
+    sortarr(arr,start, i);
+    sortarr(arr,i+2,end);
 }
 
 

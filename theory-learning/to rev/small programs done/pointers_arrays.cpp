@@ -2,7 +2,7 @@
 #include <string>
 using std::cout, std::cin, std::endl, std::string;
 
-void func(int array[]);     // is this the same as int *array?
+void printarr(int array[]);     // is this the same as int *array?
 
 
 int main() {
@@ -14,7 +14,8 @@ int main() {
     cout << *((n_array) + 2) << '\n';
     cout << &(n_array[3]) << '\n';
     cout << n_array+3 << '\n';
-    cout << func(n_array); 
+    //cout << sizeof(n_array);      // calculated in runtime
+    printarr(n_array); 
     
 
     return 0;
@@ -27,6 +28,10 @@ int main() {
 // &(array[3]) <-> array+3
 
 
-void func(int array[]) {
-    cout << array[3];           // how can I have access to the whole array if that's the first element?? 
+void printarr(int array[]) {
+    cout << '\n' << array << '\n';
+    // how can I have access to the whole array if that's the first element?? solved
+    for (int * i = array; i < array+sizeof(array); i++) {
+        cout << i << '\n';
+    }
 }
